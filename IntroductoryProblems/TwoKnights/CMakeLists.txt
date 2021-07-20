@@ -3,4 +3,6 @@ project(TwoKnights)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(TwoKnightsBruteForce bruteforce.cpp)
+add_executable(BruteForce bruteforce.cpp)
+
+add_executable(Optimized optimized.cpp)
