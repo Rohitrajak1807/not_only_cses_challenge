@@ -19,6 +19,8 @@ int main() {
 
 void show_sets(uint64_t n) {
 	uint64_t sum = (n * (n + 1)) / 2;
+//	use with c++20
+//	[[unlikely]]
 	if (sum % 2 != 0) {
 		std::cout << "NO\n";
 	} else {
