@@ -29,7 +29,7 @@ void show_sets(uint64_t n) {
 			std::cout << i << ' ';
 		std::cout << '\n';
 
-		std::cout << s1.size() << '\n';
+		std::cout << s2.size() << '\n';
 		for (uint64_t &j : s2)
 			std::cout << j << ' ';
 		std::cout << '\n';
