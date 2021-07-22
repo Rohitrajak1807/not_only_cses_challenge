@@ -3,6 +3,14 @@
 #define NO_SOLUTION "NO SOLUTION"
 
 std::string get_palindrome(const std::string &str);
+/*
+ * The idea is to get the frequency of each character. This is done using a hash map containing <char: freq> pairs.
+ * After that we find the number of characters with odd frequencies. If this number is equal to 1, but the length of
+ * input string is even, then we cannot form a palindrome, or if the number of odd characters is greater than one, then
+ * we cannot form a palindrome. After these cases, we now form the palindrome by iterating on the hash map and construct
+ * the two halves of the string, say l and r by appending and prepending respectively each character half of it's
+ * frequency floored times to l and r. After that, if number of characters with odd
+ */
 
 int main() {
 	std::string in;
@@ -40,7 +48,7 @@ std::string get_palindrome(const std::string &str) {
 		right.insert(0, s);
 	}
 	if (odd_count == 1) {
-		std::string odd_chars(odd_count, odd_char);
+		std::string odd_chars(1, odd_char);
 		left.append(odd_chars);
 	}
 	return left + right;
