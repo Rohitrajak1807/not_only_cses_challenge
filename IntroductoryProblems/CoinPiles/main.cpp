@@ -13,12 +13,6 @@ int main() {
 	return 0;
 }
 
-bool can_empty(uint64_t a, uint64_t b) {
-	uint64_t min = std::min(a, b), max = std::max(a, b);
-	if (max > 2 * min) {
-		return false;
-	} else if((min + max) % 3 == 0){
-		return true;
-	}
-	return false;
+inline bool can_empty(uint64_t a, uint64_t b) {
+	return (a + b) % 3 == 0 and std::max(a, b) <= 2 * std::min(a, b);
 }
