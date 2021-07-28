@@ -16,17 +16,13 @@ int main() {
 }
 
 int32_t coin_combinations(int32_t target, const std::vector<int32_t> &coins) {
-	std::vector<int32_t> table(target + 1, -1);
+	std::vector<int32_t> table(target + 1, 0);
 	table[0] = 1;
 	for (int32_t i = 0; i <= target; ++i) {
 		if (table[i] != -1) {
 			for (const int32_t &coin : coins) {
 				if (i + coin <= target) {
-					if (table[i + coin] == -1) {
-						table[i + coin] = table[i];
-					} else {
-						table[i + coin] = ((table[i + coin] % MODULUS) + (table[i] % MODULUS)) % MODULUS;
-					}
+					table[i + coin] = ((table[i + coin] % MODULUS) + (table[i] % MODULUS)) % MODULUS;
 				}
 			}
 		}
