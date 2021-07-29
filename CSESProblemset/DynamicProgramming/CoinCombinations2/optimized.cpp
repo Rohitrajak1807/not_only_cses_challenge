@@ -2,7 +2,10 @@
 #include <vector>
 
 #define MODULUS 1000000007
-
+/*
+ * The idea is same as before, but now instead of considering all sub array for a given sum `s` we flip the question, and
+ * ask given a subarray `coins[: k]` if we can or cannot reach the sum `s` in this manner we preserve the order.
+ */
 int32_t coin_combinations_ordered(int32_t target, const std::vector<int32_t> &coins);
 
 int main() {

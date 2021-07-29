@@ -4,6 +4,10 @@
 
 #define MODULUS 1000000007
 
+/*
+ * The idea is to observe that `order` can be enforced if we choose sub arrays from left most index to right most index.
+ * After that its simply about asking that whether to reach a sum `s` do i include or exclude a given denomination.
+ */
 int32_t coin_combinations_ordered(int32_t target, const std::vector<int32_t> &coins);
 
 int main() {
