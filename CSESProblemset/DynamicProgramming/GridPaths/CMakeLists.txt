@@ -4,3 +4,5 @@ project(GridPaths)
 set(CMAKE_CXX_STANDARD 17)
 
 add_executable(GridPaths main.cpp)
+
+add_executable(${PROJECT_NAME}Optimized optimized.cpp)
