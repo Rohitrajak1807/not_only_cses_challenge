@@ -1,5 +1,5 @@
 #include <iostream>
-#include "BST.h"
+#include "BST.hpp"
 #include <vector>
 
 //template<typename T>
