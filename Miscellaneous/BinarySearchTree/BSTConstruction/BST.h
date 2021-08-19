@@ -36,13 +36,13 @@ public:
 private:
 	std::unique_ptr <Node<T>> root;
 
-	void _insert(T &value, std::unique_ptr <Node<T>> &current_node);
+	void insert(T &value, std::unique_ptr <Node<T>> &current_node);
 
-	bool _del(const T &target, std::unique_ptr <Node<T>> &current_node);
+	bool del(const T &target, std::unique_ptr <Node<T>> &current_node);
 
-	void _delete_node(std::unique_ptr <Node<T>> &current_node);
+	void delete_node(std::unique_ptr <Node<T>> &current_node);
 
-	T _get_successor_value(std::unique_ptr <Node<T>> &current_node);
+	T get_successor_value(std::unique_ptr <Node<T>> &current_node);
 };
 
 #endif //BSTCONSTRUCTION_BST_H
