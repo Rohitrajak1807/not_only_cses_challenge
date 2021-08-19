@@ -25,6 +25,9 @@ public:
 
 	explicit BST(std::vector <T> &arr);
 
+	template<typename Input_It>
+	BST(Input_It first, Input_It last);
+
 	void insert(T &value);
 
 	void insert(T &&value);
@@ -32,6 +35,10 @@ public:
 	bool contains(const T &target);
 
 	bool remove_val(const T &target);
+
+	const T& min() const;
+
+	const T& max() const;
 
 private:
 	std::unique_ptr <Node<T>> root;
@@ -43,6 +50,7 @@ private:
 	void delete_node(std::unique_ptr <Node<T>> &current_node);
 
 	T get_successor_value(std::unique_ptr <Node<T>> &current_node);
+
 };
 
 
@@ -130,6 +138,29 @@ T BST<T>::get_successor_value(std::unique_ptr<Node<T>> &current_node) {
 		return val;
 	}
 	return get_successor_value(current_node->left);
+}
+
+template<typename T>
+const T &BST<T>::min() const {
+	auto current = root.get();
+	while(current->left)
+		current = current->left.get();
+	return current->value;
+}
+
+template<typename T>
+const T &BST<T>::max() const {
+	auto current = root.get();
+	while(current->right)
+		current = current->right.get();
+	return current->value;
+}
+
+template<typename T>
+template<typename Input_It>
+BST<T>::BST(Input_It first, Input_It last) {
+	while(first != last)
+		insert(*first++);
 }
 
 #endif //BSTCONSTRUCTION_BST_HPP
