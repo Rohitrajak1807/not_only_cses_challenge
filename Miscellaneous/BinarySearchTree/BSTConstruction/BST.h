@@ -1,5 +1,5 @@
 //
-// Created by ronin on 8/19/21.
+// Created on 8/19/21.
 //
 
 #ifndef BSTCONSTRUCTION_BST_H
