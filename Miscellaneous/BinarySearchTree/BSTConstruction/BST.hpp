@@ -14,6 +14,8 @@ struct Node {
 	std::unique_ptr <Node> right;
 
 	explicit Node(T &val);
+
+	explicit Node(T &&val);
 };
 
 template<typename T>
@@ -40,6 +42,8 @@ public:
 
 	const T& max() const;
 
+	const std::unique_ptr<Node<T>> &get_root() const;
+
 private:
 	std::unique_ptr <Node<T>> root;
 
@@ -56,6 +60,9 @@ private:
 
 template<typename T>
 Node<T>::Node(T &val) : value(val) {}
+
+template<typename T>
+Node<T>::Node(T &&val) : value(val) {}
 
 template<typename T>
 BST<T>::BST(): root(nullptr) {}
@@ -161,6 +168,11 @@ template<typename Input_It>
 BST<T>::BST(Input_It first, Input_It last) {
 	while(first != last)
 		insert(*first++);
+}
+
+template<typename T>
+const std::unique_ptr<Node<T>> &BST<T>::get_root() const {
+	return root;
 }
 
 #endif //BSTCONSTRUCTION_BST_HPP
