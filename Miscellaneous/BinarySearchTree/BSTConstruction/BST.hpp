@@ -4,14 +4,15 @@
 
 #ifndef BSTCONSTRUCTION_BST_HPP
 #define BSTCONSTRUCTION_BST_HPP
+
 #include <memory>
 #include <vector>
 
 template<typename T>
 struct Node {
 	T value;
-	std::unique_ptr <Node> left;
-	std::unique_ptr <Node> right;
+	std::unique_ptr<Node> left;
+	std::unique_ptr<Node> right;
 
 	explicit Node(T &val);
 
@@ -25,35 +26,37 @@ public:
 
 	explicit BST(T val);
 
-	explicit BST(std::vector <T> &arr);
+	explicit BST(std::vector<T> &arr);
 
 	template<typename Input_It>
 	BST(Input_It first, Input_It last);
 
-	void insert(T &value);
-
 	void insert(T &&value);
+
+	void insert(T &value);
 
 	bool contains(const T &target);
 
 	bool remove_val(const T &target);
 
-	const T& min() const;
+	const T &min() const;
 
-	const T& max() const;
+	const T &max() const;
 
-	const std::unique_ptr<Node<T>> &get_root() const;
+	const std::unique_ptr<Node<T>> &get_root_c() const;
+
+	std::unique_ptr<Node<T>> &get_root();
 
 private:
-	std::unique_ptr <Node<T>> root;
+	std::unique_ptr<Node<T>> root;
 
-	void insert(T &value, std::unique_ptr <Node<T>> &current_node);
+	void insert(T &value, std::unique_ptr<Node<T>> &current_node);
 
-	bool del(const T &target, std::unique_ptr <Node<T>> &current_node);
+	bool del(const T &target, std::unique_ptr<Node<T>> &current_node);
 
-	void delete_node(std::unique_ptr <Node<T>> &current_node);
+	void delete_node(std::unique_ptr<Node<T>> &current_node);
 
-	T get_successor_value(std::unique_ptr <Node<T>> &current_node);
+	T get_successor_value(std::unique_ptr<Node<T>> &current_node);
 
 };
 
@@ -72,7 +75,7 @@ BST<T>::BST(T val): root(std::make_unique<Node<T>>(val)) {}
 
 template<typename T>
 BST<T>::BST(std::vector<T> &arr) {
-	for (auto &i : arr) BST::insert(i);
+	for (auto &i: arr) BST::insert(i);
 }
 
 template<typename T>
@@ -150,7 +153,7 @@ T BST<T>::get_successor_value(std::unique_ptr<Node<T>> &current_node) {
 template<typename T>
 const T &BST<T>::min() const {
 	auto current = root.get();
-	while(current->left)
+	while (current->left)
 		current = current->left.get();
 	return current->value;
 }
@@ -158,7 +161,7 @@ const T &BST<T>::min() const {
 template<typename T>
 const T &BST<T>::max() const {
 	auto current = root.get();
-	while(current->right)
+	while (current->right)
 		current = current->right.get();
 	return current->value;
 }
@@ -166,12 +169,17 @@ const T &BST<T>::max() const {
 template<typename T>
 template<typename Input_It>
 BST<T>::BST(Input_It first, Input_It last) {
-	while(first != last)
+	while (first != last)
 		insert(*first++);
 }
 
 template<typename T>
-const std::unique_ptr<Node<T>> &BST<T>::get_root() const {
+const std::unique_ptr<Node<T>> &BST<T>::get_root_c() const {
+	return root;
+}
+
+template<typename T>
+std::unique_ptr<Node<T>> &BST<T>::get_root() {
 	return root;
 }
 
