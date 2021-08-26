@@ -31,13 +31,17 @@ template<typename T>
 BST<T> construct_min_h_bst(std::vector<T> &v);
 
 # if NLOGN == 1
+
 template<typename T>
 void construct_min_h_bst(std::vector<T> &v, BST<T> &bst, size_t start, size_t end);
+
 #endif
 
 #if LINEAR == 1
+
 template<typename T>
 void construct_min_h_bst(std::vector<T> &v, std::unique_ptr<Node<T>> &curr_node, size_t start, size_t end);
+
 #endif
 
 int main() {
@@ -66,6 +70,7 @@ BST<T> construct_min_h_bst(std::vector<T> &v) {
 
 
 #if NLOGN == 1
+
 template<typename T>
 void construct_min_h_bst(std::vector<T> &v, BST<T> &bst, size_t start, size_t end) {
 	if (!is_in_bound(v, start) or !is_in_bound(v, end) or (end < start))
@@ -79,9 +84,11 @@ void construct_min_h_bst(std::vector<T> &v, BST<T> &bst, size_t start, size_t en
 	construct_min_h_bst(v, bst, start, mid - 1);
 	construct_min_h_bst(v, bst, mid + 1, end);
 }
+
 #endif
 
 # if LINEAR == 1
+
 template<typename T>
 void construct_min_h_bst(std::vector<T> &v, std::unique_ptr<Node<T>> &curr_node, size_t start, size_t end) {
 	if (!is_in_bound(v, start) or !is_in_bound(v, end) or (end < start))
@@ -99,4 +106,5 @@ void construct_min_h_bst(std::vector<T> &v, std::unique_ptr<Node<T>> &curr_node,
 	construct_min_h_bst(v, curr_node->left, start, mid - 1);
 	construct_min_h_bst(v, curr_node->right, mid + 1, end);
 }
+
 # endif
