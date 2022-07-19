@@ -6,7 +6,7 @@
 // strictly decreasing.
 // At least 3 integers are needed for a peak.
 // Example array = [5, 6, 1, 2, 3, 4, 5, 4, 3, 2, 0, 1, 2, 3, -2, 4]
-// Output = 9
+// Output = 9 // subsequence of [1, 2, 3, 4, 5, 4, 3, 2, 0]
 
 int32_t find_max_peak_width(const std::vector<int32_t> &array);
 int32_t peak_width(const std::vector<int32_t>& array, size_t peak);
