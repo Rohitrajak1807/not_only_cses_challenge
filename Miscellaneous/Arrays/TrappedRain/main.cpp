@@ -27,7 +27,7 @@ size_t trapped_rain(const std::vector<int32_t> &elevations) {
 	std::vector<int32_t> max_left(elevations.size(), 0), max_right(elevations.size(), 0);
 	max_left[0] = elevations[0];
 	max_right[max_right.size() - 1] = elevations[elevations.size() - 1];
-	for (int i = 1; i < elevations.size(); ++i) {
+	for (size_t i = 1; i < elevations.size(); ++i) {
 		max_left[i] = std::max(max_left[i - 1], elevations[i]);
 		max_right[elevations.size() - i - 1] = std::max(max_right[elevations.size() - i],
 		                                                elevations[elevations.size() - i - 1]);
