@@ -2,10 +2,10 @@
 #include <vector>
 #include <limits>
 
-typedef struct {
+ struct Range {
 	size_t start;
 	size_t end;
-} Range;
+};
 
 // Given an array of size at least two, find the smallest subarray that needs
 // to be sorted in place, so that the entire input array becomes sorted.
