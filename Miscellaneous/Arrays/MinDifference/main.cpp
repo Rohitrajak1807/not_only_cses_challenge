@@ -3,6 +3,13 @@
 #include <limits>
 #include <vector>
 
+// Given two non-empty arrays of variable lengths (say M and N) find the pair of numbers (one from each array) whose
+// absolute difference is closest to zero, and return a pair containing these two numbers,
+// with the first number from the first array. Only one such pair will exist for the test.
+// Input: [1, 2, 11, 5], [4, 12, 19, 23, 127, 235]
+// Output: (5, 4)
+// Explanation:
+// The minimum absolute difference in this case is |5 - 4| = 1 which is the smallest for the given arrays.
 std::pair<int32_t, int32_t> min_difference(std::vector<int32_t> a, std::vector<int32_t> b);
 
 int main() {
