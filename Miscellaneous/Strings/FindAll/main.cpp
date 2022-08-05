@@ -16,14 +16,10 @@ int main() {
 
 std::vector<size_t> find_all(const std::string_view str, const std::string_view target) {
 	std::vector<size_t> result{};
-	size_t pos = 0;
-	while (true) {
-		pos = str.find(target, pos);
-		if (pos == std::string::npos) {
-			break;
-		}
+	size_t pos = str.find(target);
+	while (pos != std::string::npos) {
 		result.emplace_back(pos);
-		++pos;
+		pos = str.find(target, pos + 1);
 	}
 	return result;
 }
