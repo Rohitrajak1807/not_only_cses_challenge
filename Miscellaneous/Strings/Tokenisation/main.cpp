@@ -1,7 +1,6 @@
 #include <iostream>
 #include <sstream>
 #include <vector>
-#include <cstring>
 
 std::vector<std::string> using_sstream(const std::string& in);
 
