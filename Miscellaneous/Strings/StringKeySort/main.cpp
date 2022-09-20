@@ -11,11 +11,11 @@ enum SortType {
 std::vector<std::string> sort_strings(const std::vector<std::string>& in, bool reverse, SortType sort_t, int32_t key_pos);
 std::string key_at(const std::string& str, size_t pos);
 
-int32_t to_int(std::string in);
+int32_t to_int(const std::string &in);
 
-bool lexicographic_compare(std::pair<std::string, std::string>& a, std::pair<std::string, std::string>& b);
+bool lexicographic_compare(const std::pair<std::string, std::string>& a, const std::pair<std::string, std::string>& b);
 
-bool numeric_compare(std::pair<std::string, std::string>& a, std::pair<std::string, std::string>& b);
+bool numeric_compare(const std::pair<std::string, std::string>& a, const std::pair<std::string, std::string>& b);
 
 int main() {
 	std::vector<std::string> in{
@@ -65,7 +65,7 @@ std::string key_at(const std::string& str, size_t pos) {
 	return tok;
 }
 
-int32_t to_int(std::string in) {
+int32_t to_int(const std::string &in) {
 	int32_t res = 0;
 	int32_t pow = 1;
 	for(size_t i = in.length(); i > 0; --i) {
@@ -75,13 +75,13 @@ int32_t to_int(std::string in) {
 	return res;
 }
 
-bool lexicographic_compare(std::pair<std::string, std::string>& a, std::pair<std::string, std::string>& b) {
+bool lexicographic_compare(const std::pair<std::string, std::string>& a, const std::pair<std::string, std::string>& b) {
 	std::string k1 = a.second;
 	std::string k2 = b.second;
 	return k1 < k2;
 }
 
-bool numeric_compare(std::pair<std::string, std::string>& a, std::pair<std::string, std::string>& b) {
+bool numeric_compare(const std::pair<std::string, std::string>& a, const std::pair<std::string, std::string>& b) {
 	std::string k1 = a.second;
 	std::string k2 = b.second;
 	return to_int(k1) < to_int(k2);
