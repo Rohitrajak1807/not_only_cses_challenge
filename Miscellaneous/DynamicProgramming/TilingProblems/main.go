@@ -8,10 +8,15 @@ import (
 	"strings"
 )
 
+// main
+//
 // input for n-1 and n-2 tile sizes:
 // Line1: <length of board>
+//
 // input for the general case:
+//
 // Line1: <len of board> <number of tiles>
+//
 // Line2: <size of tile1> <size of tile 2> ...
 func main() {
 	reader := bufio.NewReader(os.Stdin)
