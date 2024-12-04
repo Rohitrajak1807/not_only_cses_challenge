@@ -11,7 +11,7 @@
 // Clem would be proud
 
 //  Sample Input:
-//  tree  =    1
+//  tree  =        1
 //  		/     \
 //  	   2       3
 //  	 /   \   /   \
